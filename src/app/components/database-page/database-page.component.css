@@ -1,0 +1,13 @@
+.myButton{
+    background-color:rgb(52, 91, 211);
+    color:white;
+    position: absolute;
+    bottom: 2%;
+    left: 45%;
+    border-radius: 5px;
+    width: 10%;
+}
+
+.myButton:hover{
+    background-color:rgb(20, 64, 194);
+}

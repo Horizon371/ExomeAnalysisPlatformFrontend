@@ -1,0 +1,32 @@
+.flex-container{
+    padding: 0;
+    margin-top: 1%;
+    display: flex;
+}
+
+#messageParagraph{
+    position:absolute;
+    margin-top:0.5%;
+    left:20%;
+    text-size-adjust: 20px;
+    font-size: 18px;
+}
+
+#geneNameInput{
+    margin-top:0.05%;
+    position:absolute;
+    width: 15%;
+    height:4%;
+    left:42.5%;
+}
+
+#searchButton{
+    background-color: rgba(253, 174, 78, 0.959);
+    color: white;
+    position:absolute;
+    left:60%;
+}
+
+#searchButton:hover{
+    background-color: rgba(252, 157, 41, 0.959);
+}
