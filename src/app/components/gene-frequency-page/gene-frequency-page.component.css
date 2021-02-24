@@ -21,12 +21,12 @@
 }
 
 #searchButton{
-    background-color: rgba(253, 174, 78, 0.959);
+    background-color: rgba(255, 154, 31, 0.959);
     color: white;
     position:absolute;
     left:60%;
 }
 
 #searchButton:hover{
-    background-color: rgba(252, 157, 41, 0.959);
+    background-color: rgba(255, 140, 0, 0.959)
 }
