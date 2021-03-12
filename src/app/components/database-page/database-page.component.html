@@ -1,1 +1,28 @@
-<button mat-button class="myButton" (click)="openDialog()"> ADD </button>
+<div id="databasePage">
+
+  <div id = "filterSection">
+    <p> Filters</p>
+    <p>sdsadas</p>
+  </div>
+
+  <div id = "tableSection">
+    <table mat-table [dataSource]="exomes">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator id = "paginator" [pageSizeOptions]="[8, 9, 10, 11, 15]" [pageSize]="10" (page) = "onPageChanged($event)"></mat-paginator>
+  </div>
+  
+  <div id = "fileUploadSection">
+    <app-upload-file></app-upload-file>
+  </div>
+
+</div>

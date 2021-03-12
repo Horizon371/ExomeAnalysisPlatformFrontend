@@ -1,3 +1,4 @@
+import { ExomeFileService } from '../../services/file/file-service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadFileComponent implements OnInit {
 
-  constructor() { }
+  file: File = null;
+
+  constructor(private exomeFileService : ExomeFileService) { }
 
   ngOnInit(): void {
   }
+  
+  fileSelected(event){
+    this.file = event.target.files[0]; 
+    console.log(this.file);
+  }
 
+  onFileSubmit(){
+    this.exomeFileService.upload(this.file).subscribe(event => {
+    
+    },
+    err => {
+
+    });
+  }
 }
