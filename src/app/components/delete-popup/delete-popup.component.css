@@ -1,0 +1,13 @@
+button{
+    background-color: red;
+    color: white;
+    margin-left: 5%;
+}
+
+button:disabled{
+    background-color: rgb(255, 158, 158);
+}
+
+input{
+    width: 70%;
+}

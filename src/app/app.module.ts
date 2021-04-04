@@ -18,7 +18,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { FilterExomesComponentComponent } from './components/filter-exomes-component/filter-exomes-component.component';
+import { FormsModule } from '@angular/forms';
+import { DetailPageComponent } from './components/detail-page/detail-page.component';
+import { DeletePopupComponent } from './components/delete-popup/delete-popup.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +32,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     DatabasePageComponent,
     GeneFrequencyPageComponent,
     UploadFileComponent,
+    FilterExomesComponentComponent,
+    DetailPageComponent,
+    DeletePopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +50,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,4 @@
+<p>Are you sure you want to <b> delete "{{fileName}}" </b>? <br> This action <b>cannot be undone</b>.</p>
+<p>Type in: " <b style = "color:red"> delete {{fileName}} </b>" in order to delete the file</p>
+<input type="text" (input) = "onTextChanged($event)">
+<button mat-button [disabled] = "isDeleteButtonInactive" [mat-dialog-close]="'delete'"> DELETE </button>

@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild  } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UploadFileComponent } from '../upload-file/upload-file.component'
 import { ExomeFileService } from '../../services/file/file-service.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { ExomeInterface } from '../../entities/exomeInterface';
+import { ExomeInterface } from '../../entities/interfaces/exomeInterface';
 import { MatPaginator } from '@angular/material/paginator';
-import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   providers: [UploadFileComponent],
@@ -13,22 +13,23 @@ import { tap } from 'rxjs/operators';
   templateUrl: './database-page.component.html',
   styleUrls: ['./database-page.component.css']
 })
-export class DatabasePageComponent implements OnInit {
+export class DatabasePageComponent implements AfterViewInit {
 
   exomes: MatTableDataSource<ExomeInterface>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   savedExomes: Array<ExomeInterface>;
   displayedColumns: string[] = ['id', 'name'];
+  nameFilter: string = ""
 
-  constructor(public dialog: MatDialog, private exomeFileService: ExomeFileService) { }
+  constructor(public dialog: MatDialog, private exomeFileService: ExomeFileService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.getAllExomesPaginated(0, 10);
+  ngAfterViewInit(): void {
+    this.getAllExomesPaginated(0, this.paginator.pageSize);
   }
 
-  getAllExomesPaginated(pageIndex: number, pageSize: number){
-    this.exomeFileService.getFilesPaginated(pageIndex, pageSize).subscribe(
+  getAllExomesPaginated(pageIndex: number, pageSize: number) {
+    this.exomeFileService.getFilesPaginated(pageIndex, pageSize, this.nameFilter).subscribe(
       response => {
         this.paginator.length = response.totalNumberOfElements;
         this.savedExomes = response.exomes
@@ -49,8 +50,20 @@ export class DatabasePageComponent implements OnInit {
     });
   }
 
-  onPageChanged(event){
+  onPageChanged(event) {
     console.log(this.paginator.pageIndex, this.paginator.pageSize, event)
     this.getAllExomesPaginated(this.paginator.pageIndex, this.paginator.pageSize)
+  }
+
+  getExomesFilteredByName(event) {
+    console.log(event)
+    this.nameFilter = event
+    this.paginator.pageIndex = 0
+    this.getAllExomesPaginated(this.paginator.pageIndex, this.paginator.pageSize)
+  }
+
+  onTableRowClick(row) {
+    console.log(row)
+    this.router.navigate(['/detail-page'], { queryParams: { id: row.id }})
   }
 }

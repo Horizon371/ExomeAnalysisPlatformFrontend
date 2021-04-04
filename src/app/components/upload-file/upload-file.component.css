@@ -6,7 +6,7 @@
     align-items: center;
 }
 .myButton{
-    background-color:rgb(52, 91, 211);
+    background-color:#005691;
     color:white;
     position: absolute;
     margin-top:30%;
@@ -14,5 +14,5 @@
     width: 50%;
 }
 .myButton:hover{
-    background-color:rgb(20, 64, 194);
+    background-color:#036aaf;
 }

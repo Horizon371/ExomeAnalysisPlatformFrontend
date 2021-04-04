@@ -1,0 +1,39 @@
+#exomeName{
+    width: 98%;
+    height:7%;
+    margin: 1%;
+    font-size: 25px;
+    word-wrap: break-word;
+}
+
+#buttonArea{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#downloadButton{
+    width: 12%;
+    margin-left: 1%;
+    background-color: rgb(216, 216, 216);
+}
+
+#deleteButton{
+    position: absolute;
+    width: 12%;
+    margin-left: 1%;
+    color: white;
+    background-color: rgb(255, 119, 119);
+    right: 1%;
+}
+
+#incidentialDiscoveries{
+    font-size: 20px;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+#buttonImage{
+    width:15%;
+    right:0
+}

@@ -1,0 +1,26 @@
+<div id="filterSection">
+
+    <p id="filtersTitle"> Filter </p>
+
+    <div id="nameFilter">
+        <mat-checkbox [(ngModel)] = "checkbox" (change) = "onNameCheckStatChange()">Filter by name</mat-checkbox>
+        <input [(ngModel)]="nameInput" id="nameInput" [disabled]="filterByName" >
+    </div>
+
+    <!-- <div id="dateFilter">
+        <mat-checkbox (change) = "onDateCheckStatChange()">Date added</mat-checkbox>
+        <mat-form-field class="example-form-field" appearance="fill" >
+            <mat-label>Added between the dates</mat-label>
+            <mat-date-range-input [disabled]="filterByDate"  [formGroup]="campaignOne" [rangePicker]="campaignOnePicker"
+                [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+                <input matStartDate placeholder="Start date" formControlName="start">
+                <input matEndDate placeholder="End date" formControlName="end">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+            <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+        </mat-form-field>
+    </div> -->
+
+
+    <button mat-button class = "myButton" (click)="onFilterApply()" [disabled]="filterByName" >Apply filter</button>
+</div>

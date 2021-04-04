@@ -1,0 +1,63 @@
+#filtersTitle {
+  color: black;
+  font-size: 25px;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+#filterSection {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#nameInput {
+  height: 40px;
+}
+
+#nameFilter {
+  margin-top: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+#dateFilter {
+  margin-top: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.myButton {
+  background-color: #005691;
+  color: white;
+  position: relative;
+  border-radius: 5px;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10%;
+} 
+
+.myButton:hover {
+  background-color: #036aaf;
+}
+
+.myButton:disabled{
+  background-color: #477ca0;
+}
+
+::ng-deep
+  .mat-checkbox-checked.mat-accent
+  .mat-checkbox-ripple
+  .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: #005691 !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #005691;
+}
