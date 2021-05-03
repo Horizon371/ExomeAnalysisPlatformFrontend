@@ -16,3 +16,12 @@
 .myButton:hover{
     background-color:#036aaf;
 }
+
+.myButton:disabled{
+    background-color: #477ca0;
+}
+
+#loadingSpinner{
+  position: absolute;
+  margin-top:30%
+}

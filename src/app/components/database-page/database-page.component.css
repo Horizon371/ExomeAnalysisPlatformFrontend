@@ -33,7 +33,7 @@ app-upload-file {
 
 .tableContainer {
   height: 91%;
-  display:block;
+  display: block;
   overflow-y: auto;
 }
 

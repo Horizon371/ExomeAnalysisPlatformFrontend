@@ -24,7 +24,9 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { FilterExomesComponentComponent } from './components/filter-exomes-component/filter-exomes-component.component';
 import { FormsModule } from '@angular/forms';
 import { DetailPageComponent } from './components/detail-page/detail-page.component';
-import { DeletePopupComponent } from './components/delete-popup/delete-popup.component'
+import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,7 @@ import { DeletePopupComponent } from './components/delete-popup/delete-popup.com
     MatToolbarModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatInputModule,    
+    MatInputModule,
     MatDialogModule,
     MaterialFileInputModule,
     MatIconModule,
@@ -53,7 +55,8 @@ import { DeletePopupComponent } from './components/delete-popup/delete-popup.com
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

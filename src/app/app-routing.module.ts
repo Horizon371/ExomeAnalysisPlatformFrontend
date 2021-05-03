@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: '', component: DatabasePageComponent },
   { path: 'database-page', component: DatabasePageComponent },
   { path: 'frequency-page', component: GeneFrequencyPageComponent },
   { path: 'detail-page', component: DetailPageComponent },

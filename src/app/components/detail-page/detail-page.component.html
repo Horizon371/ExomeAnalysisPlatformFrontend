@@ -1,12 +1,34 @@
-<p id = "exomeName">{{name}}</p>
-<div id = "buttonArea">
-    <button mat-button id = "downloadButton" type="submit" (click) = "downloadExomeFile()">
-        Download
-        <img id = "buttonImage" src="assets/images/download-flat.png"/>
-    </button>
-    <button mat-button id = "deleteButton" type="submit" (click) = "openDeleteDialog()">
-        Delete
-        <img id = "buttonImage" src="assets/images/delete-x-icon.png"/>
-    </button>
+<p id="exomeName">{{name}}</p>
+<div id="buttonArea">
+  <button mat-button id="downloadButton" type="submit" (click)="downloadExomeFile()">
+    Download
+    <img class="buttonImage" src="assets/images/download-flat.png" alt=""/>
+  </button>
+  <button mat-button id="deleteButton" type="submit" (click)="openDeleteDialog()">
+    Delete
+    <img class="buttonImage" src="assets/images/delete-x-icon.png" alt=""/>
+  </button>
 </div>
-<p id = "incidentialDiscoveries"> Incidential discoveries </p>
+
+<p id="cosangunityText">Cosangunity: {{cosanguinity}} </p>
+<p id="incidentialDiscoveries"> Incidential discoveries </p>
+
+<div>
+  <table class = "geneTable" mat-table [dataSource]="geneEntries">
+    <ng-container matColumnDef="Gene Name">
+      <th mat-header-cell *matHeaderCellDef> Gene Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.geneName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Chromosome">
+      <th mat-header-cell *matHeaderCellDef> Chromosome </th>
+      <td mat-cell *matCellDef="let element"> {{element.chromosome}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Position">
+      <th mat-header-cell *matHeaderCellDef> Position</th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator id = "detail_paginator" [length]="geneEntries.length" [pageSizeOptions]="[8, 9, 10, 11, 15]" [pageSize]="8"></mat-paginator>
+</div>

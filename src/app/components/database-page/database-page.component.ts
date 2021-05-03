@@ -1,6 +1,6 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { UploadFileComponent } from '../upload-file/upload-file.component'
+import { UploadFileComponent } from '../upload-file/upload-file.component';
 import { ExomeFileService } from '../../services/file/file-service.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { ExomeInterface } from '../../entities/interfaces/exomeInterface';
@@ -20,7 +20,7 @@ export class DatabasePageComponent implements AfterViewInit {
 
   savedExomes: Array<ExomeInterface>;
   displayedColumns: string[] = ['id', 'name'];
-  nameFilter: string = ""
+  nameFilter = '';
 
   constructor(public dialog: MatDialog, private exomeFileService: ExomeFileService, private router: Router) { }
 
@@ -32,18 +32,18 @@ export class DatabasePageComponent implements AfterViewInit {
     this.exomeFileService.getFilesPaginated(pageIndex, pageSize, this.nameFilter).subscribe(
       response => {
         this.paginator.length = response.totalNumberOfElements;
-        this.savedExomes = response.exomes
+        this.savedExomes = response.exomes;
         this.exomes = new MatTableDataSource<ExomeInterface>(this.savedExomes);
         console.log(response);
       },
       error => {
 
       }
-    )
+    );
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(UploadFileComponent, {})
+    const dialogRef = this.dialog.open(UploadFileComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
@@ -51,19 +51,19 @@ export class DatabasePageComponent implements AfterViewInit {
   }
 
   onPageChanged(event) {
-    console.log(this.paginator.pageIndex, this.paginator.pageSize, event)
-    this.getAllExomesPaginated(this.paginator.pageIndex, this.paginator.pageSize)
+    console.log(this.paginator.pageIndex, this.paginator.pageSize, event);
+    this.getAllExomesPaginated(this.paginator.pageIndex, this.paginator.pageSize);
   }
 
   getExomesFilteredByName(event) {
-    console.log(event)
-    this.nameFilter = event
-    this.paginator.pageIndex = 0
-    this.getAllExomesPaginated(this.paginator.pageIndex, this.paginator.pageSize)
+    console.log(event);
+    this.nameFilter = event;
+    this.paginator.pageIndex = 0;
+    this.getAllExomesPaginated(this.paginator.pageIndex, this.paginator.pageSize);
   }
 
   onTableRowClick(row) {
-    console.log(row)
-    this.router.navigate(['/detail-page'], { queryParams: { id: row.id }})
+    console.log(row);
+    this.router.navigate(['/detail-page'], { queryParams: { id: row.id }});
   }
 }
