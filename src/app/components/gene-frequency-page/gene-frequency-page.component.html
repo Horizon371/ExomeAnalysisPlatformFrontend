@@ -1,6 +1,29 @@
 <div class="flex-container">
-    <div id="messageParagraph">Search for a gene</div>
-    <input matInput id="geneNameInput" type="text" name="gene">
-    <button mat-button id="searchButton">SEARCH</button>
+  <input [(ngModel)]="geneInput" id="geneNameInput">
+  <button mat-button id="searchButton" [disabled] = "geneVariationsLoading" (click)="onGeneSearch()">Search for gene</button>
 </div>
 
+<p id = "centerMessageText" [hidden] = "centerTextNotVisible">{{centerMessageText}}</p>
+
+<mat-spinner id="loadingSpinnerTable" [diameter]="120" [hidden]="!geneVariationsLoading"></mat-spinner>
+<div id="tableSection" [hidden]="!geneVariationsLoaded">
+  <table class="geneFrequencyTable" mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="frequency">
+      <th mat-header-cell *matHeaderCellDef> Frequency</th>
+      <td mat-cell id = "frequencyTableMargin" *matCellDef="let element"> {{element.frequency}} </td>
+    </ng-container>
+    <ng-container matColumnDef="chromosome">
+      <th mat-header-cell *matHeaderCellDef> Chromosome</th>
+      <td mat-cell *matCellDef="let element"> {{element.chromosome}} </td>
+    </ng-container>
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> Position</th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<mat-paginator id="paginator" (page)="onPageChange($event)" [length]="geneVariationFrequencies.length"
+               [pageSize]="8" [hidden]="!geneVariationsLoaded"></mat-paginator>

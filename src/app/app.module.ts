@@ -20,12 +20,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import { FilterExomesComponentComponent } from './components/filter-exomes-component/filter-exomes-component.component';
 import { FormsModule } from '@angular/forms';
 import { DetailPageComponent } from './components/detail-page/detail-page.component';
 import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     DeletePopupComponent,
   ],
   imports: [
+    MatSelectModule,
+    MatOptionModule,
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,

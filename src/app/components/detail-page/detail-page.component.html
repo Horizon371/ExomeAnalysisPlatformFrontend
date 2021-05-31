@@ -1,34 +1,67 @@
-<p id="exomeName">{{name}}</p>
-<div id="buttonArea">
-  <button mat-button id="downloadButton" type="submit" (click)="downloadExomeFile()">
-    Download
-    <img class="buttonImage" src="assets/images/download-flat.png" alt=""/>
-  </button>
-  <button mat-button id="deleteButton" type="submit" (click)="openDeleteDialog()">
-    Delete
-    <img class="buttonImage" src="assets/images/delete-x-icon.png" alt=""/>
-  </button>
-</div>
+<div id="detailPage">
+  <div id="infoSection">
+    <p id="exomeName">{{name}}</p>
+    <div id="buttonArea">
+      <button mat-button id="downloadButton" type="submit" (click)="downloadExomeFile()">
+        Download
+        <img class="buttonImage" src="assets/images/download-flat.png" alt=""/>
+      </button>
+      <button mat-button id="deleteButton" type="submit" (click)="openDeleteDialog()">
+        Delete
+      </button>
+    </div>
+    <div id="cosanguinitySection">
+      <p class="cosangunityText">Cosangunity:&ensp;</p>
+      <mat-spinner [diameter]="30" [hidden] = "cosanguinityLoaded"></mat-spinner>
+      <p class="cosangunityText">{{cosanguinity}}</p>
+    </div>
+  </div>
 
-<p id="cosangunityText">Cosangunity: {{cosanguinity}} </p>
-<p id="incidentialDiscoveries"> Incidential discoveries </p>
+  <div [hidden]="!elementsLoaded" id="tableSection">
+    <p id="incidentialDiscoveries"> Incidential discoveries </p>
+    <table class="geneTable" mat-table [hidden] = "isTableHidden" [dataSource]="dataSource">
+      <ng-container matColumnDef="Gene Name">
+        <th mat-header-cell *matHeaderCellDef> Gene Name</th>
+        <td mat-cell id = "geneNameTable" *matCellDef="let element"> {{element.geneName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Chromosome">
+        <th mat-header-cell *matHeaderCellDef> Chromosome</th>
+        <td mat-cell *matCellDef="let element"> {{element.chromosome}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Position">
+        <th mat-header-cell *matHeaderCellDef> Position</th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <div [hidden]="!elementsLoaded" id="tableControls">
+      <mat-form-field appearance="fill" id="geneNameForm">
+        <mat-label>Filter by Gene Name</mat-label>
+        <mat-select (selectionChange)="onGeneNameSelected($event.value)">
+          <mat-option *ngFor="let geneName of geneNames" [value]="geneName">
+            {{geneName}}
+          </mat-option>
+        </mat-select>
 
-<div>
-  <table class = "geneTable" mat-table [dataSource]="geneEntries">
-    <ng-container matColumnDef="Gene Name">
-      <th mat-header-cell *matHeaderCellDef> Gene Name</th>
-      <td mat-cell *matCellDef="let element"> {{element.geneName}} </td>
-    </ng-container>
-    <ng-container matColumnDef="Chromosome">
-      <th mat-header-cell *matHeaderCellDef> Chromosome </th>
-      <td mat-cell *matCellDef="let element"> {{element.chromosome}} </td>
-    </ng-container>
-    <ng-container matColumnDef="Position">
-      <th mat-header-cell *matHeaderCellDef> Position</th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-  <mat-paginator id = "detail_paginator" [length]="geneEntries.length" [pageSizeOptions]="[8, 9, 10, 11, 15]" [pageSize]="8"></mat-paginator>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" id="chromosomeForm">
+        <mat-label>Filter by Chromosome</mat-label>
+        <mat-select (selectionChange)="onChromosomeSelected($event.value)">
+          <mat-option *ngFor="let chromosome of chromosomes" [value]="chromosome">
+            {{chromosome}}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+      <mat-paginator id="paginator" (page)="onPageChange($event)" [length]="geneEntriesFiltered.length"
+                     [pageSize]="defaultItemsPerPage"
+                     [pageSizeOptions]="[7, 8, 9, 10, 15]" [hidden]="isTableHidden"></mat-paginator>
+    </div>
+  </div>
+  <mat-spinner id="loadingSpinnerTable" [diameter]="120" [hidden]="elementsLoaded"></mat-spinner>
+
+
 </div>

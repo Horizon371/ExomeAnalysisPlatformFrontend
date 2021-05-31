@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { MatCheckbox } from '@angular/material/checkbox';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {MatCheckbox} from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-filter-exomes-component',
@@ -10,8 +10,8 @@ import { MatCheckbox } from '@angular/material/checkbox';
 export class FilterExomesComponentComponent {
   campaignOne: FormGroup;
   campaignTwo: FormGroup;
-  filterByName: boolean = true;
-  filterByDate: boolean = true;
+  filterByName = true;
+  filterByDate = true;
   checkbox: MatCheckbox = null;
   nameInput: string = null;
 
@@ -33,18 +33,18 @@ export class FilterExomesComponentComponent {
     });
   }
 
-  onNameCheckStatChange(){
+  onNameCheckStatChange() {
     this.filterByName = !this.filterByName;
-    if(this.filterByName){
-      this.nameFilterEvent.emit("")
+    if (this.filterByName) {
+      this.nameFilterEvent.emit('');
     }
   }
 
-  onDateCheckStatChange(){
+  onDateCheckStatChange() {
     this.filterByDate = !this.filterByDate;
   }
 
-  onFilterApply(){
-    this.nameFilterEvent.emit(this.nameInput)
+  onFilterApply() {
+    this.nameFilterEvent.emit(this.nameInput);
   }
 }

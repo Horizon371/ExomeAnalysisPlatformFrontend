@@ -5,25 +5,85 @@
   word-wrap: break-word;
 }
 
+#detailPage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 89%;
+  bottom: 0;
+}
+
+#geneNameTable
+{
+  left-ma: 1%;
+}
 #buttonArea {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
 
-#cosangunityText {
-  font-size: 20px;
+#cosanguinitySection{
+  display: flex;
+  flex-direction: row;
   margin-top: 1%;
   margin-left: 1%;
+  height: 2%;
+}
+
+#tableSection {
+  margin-top: 5%;
+  height: 60%;
+}
+
+#loadingSpinnerTable{
+  margin: 0 auto;
+  margin-top: 16%;
+}
+
+#infoSection {
+  height: 14%;
+}
+
+#paginator{
+  position: absolute;
+  margin-top: 1%;
+  right: 1%;
+}
+.cosangunityText {
+  font-size: 20px;
+  margin-top: 0.3%;
+}
+
+#noTableMessage{
+  width: 100%;
+  height: 100%;
 }
 
 .geneTable {
   table-layout: fixed;
-  width: 100%;
+  width: 97%;
+  margin-left: 1.5%;
   height: 100%;
   max-height: 100%;
 }
 
+#geneNameForm {
+  margin: 1% 1% 0%;
+}
+
+#chromosomeForm {
+  margin: 1% 1% 0%;
+}
+
+#tableControls{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-left: 0.5%;
+  bottom: 0;
+}
 
 #downloadButton {
   width: 12%;
@@ -49,4 +109,35 @@
 .buttonImage {
   width: 15%;
   right: 0
+}
+
+td.mat-cell {
+  /* row padding */
+  padding: 16px 0;
+  /* row border */
+  border-bottom: 1px solid #d9d7cf;
+  border-top: 1px solid #d9d7cf;
+}
+
+th.mat-cell {
+  /* row padding */
+  padding: 16px 0;
+  /* row border */
+  border-bottom: 1px solid #d9d7cf;
+  border-top: 1px solid #d9d7cf;
+}
+
+td.mat-cell:first-child {
+  /* row border */
+  border-left: 1px solid #d9d7cf;
+}
+
+td.mat-cell:last-child {
+  /* row border */
+  border-right: 1px solid #d9d7cf;
+}
+
+table {
+  /* row spacing / margin */
+  border-spacing: 0 8px !important;
 }
