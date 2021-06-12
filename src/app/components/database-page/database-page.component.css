@@ -41,6 +41,8 @@ app-upload-file {
   background-color: #bce4ff;
 }
 
+.notfirst { cursor: pointer; }
+
 table {
   table-layout: fixed;
   width: 100%;

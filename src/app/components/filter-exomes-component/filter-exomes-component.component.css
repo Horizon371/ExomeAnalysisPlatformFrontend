@@ -39,14 +39,14 @@
   width: 50%;
   margin: 0 auto;
   margin-top: 10%;
-} 
+}
 
 .myButton:hover {
   background-color: #036aaf;
 }
 
 .myButton:disabled{
-  background-color: #477ca0;
+  background-color: #80909c;
 }
 
 ::ng-deep

@@ -18,6 +18,15 @@
     background-color: rgb(104, 104, 104);
 }
 
+#clusteringButton{
+  background-color: rgb(66, 66, 66);
+  color: white;
+  margin-left:1%;
+}
+
+#clusteringButton:hover{
+  background-color: rgb(104, 104, 104);
+}
 mat-toolbar{
     background-color: rgb(39, 39, 39);
     height:7%

@@ -55,12 +55,16 @@ export class GeneFrequencyPageComponent implements OnInit {
     this.geneVariationsLoading = true;
     this.centerTextNotVisible = true;
     this.selectedGeneSearch = this.geneInput.toUpperCase();
-    this.dataAnalysisService.getGeneFrequency(this.geneInput.toUpperCase()).subscribe(
-      frequencies => {
+    if (this.geneInput === '' || this.geneInput === ' '){
+      this.selectedGeneSearch = 'No Gene';
+    }
+    this.dataAnalysisService.getGeneFrequency(this.selectedGeneSearch).subscribe(
+      frequenciesResp => {
+        const frequencies = frequenciesResp.sort((a, b) => this.compare(Number(a.frequency), Number(b.frequency)));
         this.geneVariationFrequencies = frequencies;
         if (this.geneVariationFrequencies.length === 0) {
           this.centerTextNotVisible = false;
-          this.centerMessageText = 'There are no gene variants coresponding to the gene ' + this.selectedGeneSearch;
+          this.centerMessageText = 'There are no gene variants corresponding to the gene ' + this.selectedGeneSearch;
         } else {
           this.geneVariationsLoaded = true;
           this.dataSource = new MatTableDataSource(this.geneVariationFrequencies.slice(0, 8));
@@ -68,8 +72,19 @@ export class GeneFrequencyPageComponent implements OnInit {
         this.geneVariationsLoading = false;
       },
       error => {
+        console.log(error);
       }
     );
+  }
+
+  public compare(a: number, b: number) {
+    if (a < b) {
+      return 1;
+    }
+    if (a > b) {
+      return -1;
+    }
+    return 0;
   }
 
   onPageChange(event: PageEvent) {

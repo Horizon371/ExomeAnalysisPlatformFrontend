@@ -3,12 +3,14 @@ import { GeneFrequencyPageComponent } from './components/gene-frequency-page/gen
 import { DatabasePageComponent } from './components/database-page/database-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {ClusteringPageComponent} from './components/clustering-page/clustering-page.component';
 
 const routes: Routes = [
   { path: '', component: DatabasePageComponent },
   { path: 'database-page', component: DatabasePageComponent },
   { path: 'frequency-page', component: GeneFrequencyPageComponent },
   { path: 'detail-page', component: DetailPageComponent },
+  { path: 'clustering-page', component: ClusteringPageComponent },
 ];
 
 @NgModule({

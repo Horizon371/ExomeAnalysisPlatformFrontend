@@ -24,7 +24,7 @@ export class DetailPageComponent implements OnInit, AfterViewInit {
 
   name = 'Exome name';
   displayedColumns: string[] = ['Gene Name', 'Chromosome', 'Position'];
-  defaultItemsPerPage = 7;
+  defaultItemsPerPage = 6;
   cosanguinity = '';
   geneEntries: GeneEntry[] = Array();
   geneEntriesFiltered: GeneEntry[] = Array();
@@ -84,6 +84,8 @@ export class DetailPageComponent implements OnInit, AfterViewInit {
         this.cosanguinity = success;
       },
       error => {
+        this.cosanguinityLoaded = true;
+        this.cosanguinity = 'Error';
       }
     );
   }
@@ -99,6 +101,9 @@ export class DetailPageComponent implements OnInit, AfterViewInit {
         this.chromosomes = incidentialDiscoveries.chromosomes;
         this.chromosomes.push('None');
         this.elementsLoaded = true;
+        if (this.geneEntries.length === 0) {
+          this.isTableHidden = true;
+        }
       },
       error => {
       }

@@ -33,6 +33,7 @@ export class UploadFileComponent implements OnInit {
         this.isFileUploaded = false;
         this.file = undefined;
         this.selectedSwitch = true;
+        window.location.reload();
       },
       err => {
         this.isFileUploaded = false;

@@ -19,7 +19,7 @@
         <tr (click) = "onTableRowClick(row)" class = "notfirst" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </div>
-      <mat-paginator id = "paginator" [pageSizeOptions]="[8, 9, 10, 11, 15]" [pageSize]="30" (page) = "onPageChanged($event)"></mat-paginator>
+      <mat-paginator id = "paginator" [pageSize]="11" (page) = "onPageChanged($event)"></mat-paginator>
   </div>
 
   <div id = "fileUploadSection">

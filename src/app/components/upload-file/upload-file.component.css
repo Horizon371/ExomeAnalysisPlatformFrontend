@@ -18,8 +18,9 @@
 }
 
 .myButton:disabled{
-    background-color: #477ca0;
+  background-color: #80909c;
 }
+
 
 #loadingSpinner{
   position: absolute;

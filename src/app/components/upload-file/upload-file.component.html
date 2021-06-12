@@ -2,7 +2,7 @@
   <div class="mb-3">
     <input class="form-control" type="file" [(ngModel)]="file" id="formFileMultiple" accept=".xls" (change)="fileSelected($event)">
   </div>
-  <button mat-button class="myButton" (click)="onFileSubmit()" [disabled]="selectedSwitch" [hidden]=isFileUploaded> ADD </button>
+  <button mat-button class="myButton" (click)="onFileSubmit()" [disabled]="selectedSwitch" [hidden]=isFileUploaded> Add </button>
   <mat-spinner id = "loadingSpinner" [diameter]="70" [hidden]=!isFileUploaded></mat-spinner>
 </div>
 

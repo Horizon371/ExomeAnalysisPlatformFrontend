@@ -27,6 +27,7 @@ import { DetailPageComponent } from './components/detail-page/detail-page.compon
 import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
+import { ClusteringPageComponent } from './components/clustering-page/clustering-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {MatSelectModule} from '@angular/material/select';
     FilterExomesComponentComponent,
     DetailPageComponent,
     DeletePopupComponent,
+    ClusteringPageComponent,
   ],
   imports: [
     MatSelectModule,

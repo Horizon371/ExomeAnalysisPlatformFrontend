@@ -36,6 +36,7 @@ export class FilterExomesComponentComponent {
   onNameCheckStatChange() {
     this.filterByName = !this.filterByName;
     if (this.filterByName) {
+      this.nameInput = '';
       this.nameFilterEvent.emit('');
     }
   }

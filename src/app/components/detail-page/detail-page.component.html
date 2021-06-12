@@ -4,21 +4,22 @@
     <div id="buttonArea">
       <button mat-button id="downloadButton" type="submit" (click)="downloadExomeFile()">
         Download
-        <img class="buttonImage" src="assets/images/download-flat.png" alt=""/>
+        <mat-icon style = "color: green">file_download</mat-icon>
       </button>
       <button mat-button id="deleteButton" type="submit" (click)="openDeleteDialog()">
         Delete
+        <mat-icon style = "color: white; margin-bottom: 3%">delete_outline</mat-icon>
       </button>
     </div>
     <div id="cosanguinitySection">
-      <p class="cosangunityText">Cosangunity:&ensp;</p>
+      <p class="cosangunityText">Cosanguinity:&ensp;</p>
       <mat-spinner [diameter]="30" [hidden] = "cosanguinityLoaded"></mat-spinner>
       <p class="cosangunityText">{{cosanguinity}}</p>
     </div>
   </div>
 
   <div [hidden]="!elementsLoaded" id="tableSection">
-    <p id="incidentialDiscoveries"> Incidential discoveries </p>
+    <p id="incidentialDiscoveries"> Incidental discoveries </p>
     <table class="geneTable" mat-table [hidden] = "isTableHidden" [dataSource]="dataSource">
       <ng-container matColumnDef="Gene Name">
         <th mat-header-cell *matHeaderCellDef> Gene Name</th>
@@ -58,7 +59,7 @@
 
       <mat-paginator id="paginator" (page)="onPageChange($event)" [length]="geneEntriesFiltered.length"
                      [pageSize]="defaultItemsPerPage"
-                     [pageSizeOptions]="[7, 8, 9, 10, 15]" [hidden]="isTableHidden"></mat-paginator>
+                     [pageSizeOptions]="[6, 7, 8, 9, 10, 15]" [hidden]="isTableHidden"></mat-paginator>
     </div>
   </div>
   <mat-spinner id="loadingSpinnerTable" [diameter]="120" [hidden]="elementsLoaded"></mat-spinner>

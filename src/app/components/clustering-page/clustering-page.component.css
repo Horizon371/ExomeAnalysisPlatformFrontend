@@ -1,0 +1,38 @@
+#clustering_image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 55%;
+}
+
+#cluster_title{
+  margin-top: 2%;
+  text-align: center;
+  font-size: 25px;
+}
+
+#lol{
+  display: flex;
+  flex-direction: row;
+}
+
+button{
+  background-color:#005691;
+  color:white;
+  margin-top: 1%;
+  margin-left: 43%;
+  position: absolute;
+  border-radius: 5px;
+  width: 14%;
+}
+button:hover{
+  background-color:#036aaf;
+}
+
+button:hover{
+  background-color:#036aaf;
+}
+
+button:disabled{
+  background-color: #80909c;
+}

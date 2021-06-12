@@ -31,4 +31,20 @@ export class DataAnalysisService {
   getGeneFrequency(geneName: string): Observable<GeneFrequencyEntry[]>{
     return this.http.post<GeneFrequencyEntry[]>(`${this.baseUrl}/analysis/frequency`, geneName, this.options);
   }
+
+  getClusterFigure(): Observable<any>{
+    const options = {
+      responseType: 'blob' as 'json',
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    let something = 'something';
+    return this.http.post<any>(`${this.baseUrl}/analysis/clusteringImg`, something, options);
+  }
+
+  runClustering(): Observable<any> {
+    let something = 'something';
+    return this.http.post(`${this.baseUrl}/analysis/cluster`, something, this.options);
+  }
 }
